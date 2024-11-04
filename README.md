@@ -20,7 +20,7 @@ Para que este proyecto funcione correctamente, se requieren los siguientes eleme
 
 ### Instalación de ripgrep
 
-1. Descarga `ripgrep` desde el [sitio oficial de ripgrep](https://github.com/BurntSushi/ripgrep/releases).
+1. Descarga `ripgrep` desde el [sitio oficial de ripgrep](https://github.com/YukiRito2/Doxing.git).
 2. Sigue las instrucciones para instalarlo en tu sistema operativo:
    - **Windows**: Descarga el archivo `.zip`, extrae el contenido y copia el archivo `rg.exe` a una ubicación de fácil acceso.
    - **Linux** (Ubuntu/Debian): Ejecuta el siguiente comando en la terminal:
