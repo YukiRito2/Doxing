@@ -1,6 +1,6 @@
 # Proyecto de Búsqueda en RENIEC
 
-Este proyecto permite realizar búsquedas en un archivo CSV grande de RENIEC (10 GB) utilizando Flask y `ripgrep` para una rápida búsqueda de registros. El objetivo es ofrecer una aplicación web donde los usuarios puedan buscar información por diferentes criterios: nombres y apellidos, solo apellidos, DNI, o celular. Los resultados se muestran organizados y estructurados en la interfaz.
+Este proyecto permite realizar búsquedas en un archivo CSV utilizando Flask y `ripgrep` para una rápida búsqueda de registros de la RENIEC. El objetivo es ofrecer una aplicación web donde los usuarios puedan buscar información por diferentes criterios: nombres y apellidos, solo apellidos, DNI, o celular. Los resultados se muestran organizados y estructurados en la interfaz.
 
 ## Características
 
