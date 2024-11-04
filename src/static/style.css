@@ -4,6 +4,7 @@ body {
   margin: 20px;
   background-color: #f8f9fa;
   color: #333;
+  position: relative;
 }
 
 /* Contenedor del formulario */
@@ -85,10 +86,22 @@ button:hover {
   transition: opacity 0.5s ease-in-out;
 }
 
-/* Indicador de carga */
+/* Mostrar el contenedor de resultados con opacidad */
+.result.visible {
+  opacity: 1;
+}
+
+/* Indicador de carga flotante */
 .loading {
-  text-align: center;
-  color: #007bff;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 15px 30px;
+  border-radius: 8px;
   font-weight: bold;
-  padding: 10px;
+  color: #007bff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
 }

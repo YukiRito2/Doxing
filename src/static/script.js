@@ -23,10 +23,10 @@ function buscar() {
     data.celular = document.getElementById("celular").value;
   }
 
-  // Muestra el indicador de carga y oculta el contenido de resultados
+  // Muestra el indicador de carga y oculta el contenedor de resultados
   document.getElementById("loading").style.display = "block";
-  document.getElementById("resultContent").style.display = "none";
-  document.getElementById("result").style.display = "block"; // Asegura que se muestra el contenedor de resultados
+  document.getElementById("result").style.display = "none";
+  document.getElementById("result").classList.remove("visible");
 
   fetch("/buscar", {
     method: "POST",
@@ -37,16 +37,17 @@ function buscar() {
   })
     .then((response) => response.text())
     .then((resultado) => {
-      // Oculta el indicador de carga y muestra el contenido de resultados
+      // Oculta el indicador de carga y muestra el contenedor de resultados
       document.getElementById("loading").style.display = "none";
-      document.getElementById("resultContent").style.display = "block";
-      document.getElementById("result").style.opacity = "1"; // Activa la opacidad completa para mostrar el contenido
+      document.getElementById("result").style.display = "block";
       document.getElementById("resultContent").innerText = resultado || "No se encontró ninguna coincidencia.";
+      document.getElementById("result").classList.add("visible");
     })
     .catch((error) => {
       console.error("Error en la búsqueda:", error);
       document.getElementById("loading").style.display = "none";
       document.getElementById("resultContent").innerText = "Ocurrió un error en la búsqueda.";
-      document.getElementById("resultContent").style.display = "block";
+      document.getElementById("result").style.display = "block";
+      document.getElementById("result").classList.add("visible");
     });
 }
