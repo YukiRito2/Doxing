@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Búsqueda de RENIEC</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <script>
+      function toggleFields() {
+        const searchType = document.getElementById("searchType").value;
+        document.getElementById("nameFields").style.display =
+          searchType === "nombres" ? "block" : "none";
+        document.getElementById("dniField").style.display =
+          searchType === "dni" ? "block" : "none";
+        document.getElementById("celularField").style.display =
+          searchType === "celular" ? "block" : "none";
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Búsqueda de RENIEC</h1>
+    <form action="/buscar" method="POST">
+      <label for="searchType">Tipo de búsqueda:</label>
+      <select id="searchType" name="searchType" onchange="toggleFields()">
+        <option value="nombres">Por Nombres y Apellidos</option>
+        <option value="dni">Por DNI</option>
+        <option value="celular">Por Celular</option>
+      </select>
+      <br />
+
+      <div id="nameFields" style="display: block">
+        <label for="nombres">Nombres:</label>
+        <input type="text" id="nombres" name="nombres" />
+        <br />
+        <label for="apellidos">Apellidos:</label>
+        <input type="text" id="apellidos" name="apellidos" />
+      </div>
+
+      <div id="dniField" style="display: none">
+        <label for="dni">DNI:</label>
+        <input type="text" id="dni" name="dni" />
+      </div>
+
+      <div id="celularField" style="display: none">
+        <label for="celular">Celular:</label>
+        <input type="text" id="celular" name="celular" />
+      </div>
+
+      <br />
+      <button type="submit">Buscar</button>
+    </form>
+
+    {% if resultado %}
+    <div class="result">
+      <h2>Resultados de la búsqueda:</h2>
+      <pre>{{ resultado }}</pre>
+    </div>
+    {% endif %}
+  </body>
+</html>
