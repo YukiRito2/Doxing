@@ -15,18 +15,27 @@
     <form id="searchForm">
       <label for="searchType">Tipo de búsqueda:</label>
       <select id="searchType" name="searchType" onchange="toggleFields()">
+        <option value="">Seleccione una opción</option>
         <option value="nombres">Por Nombres y Apellidos</option>
+        <option value="solo_apellidos">Solo Apellidos</option>
         <option value="dni">Por DNI</option>
         <option value="celular">Por Celular</option>
       </select>
       <br />
 
-      <div id="nameFields" style="display: block">
+      <!-- Campos de entrada para nombres y apellidos -->
+      <div id="nameFields" style="display: none">
         <label for="nombres">Nombres:</label>
         <input type="text" id="nombres" name="nombres" />
         <br />
         <label for="apellidos">Apellidos:</label>
         <input type="text" id="apellidos" name="apellidos" />
+      </div>
+
+      <!-- Campo de entrada solo para apellidos -->
+      <div id="lastNameOnlyField" style="display: none">
+        <label for="apellidosOnly">Apellidos:</label>
+        <input type="text" id="apellidosOnly" name="apellidosOnly" />
       </div>
 
       <div id="dniField" style="display: none">
@@ -43,10 +52,8 @@
       <button type="button" onclick="buscar()">Buscar</button>
     </form>
 
-    <!-- Indicador de carga flotante -->
     <div id="loading" class="loading" style="display: none">Cargando...</div>
 
-    <!-- Contenedor de resultados -->
     <div id="result" class="result" style="display: none">
       <h2>Resultados de la búsqueda:</h2>
       <pre id="resultContent"></pre>

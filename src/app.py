@@ -20,6 +20,9 @@ def buscar():
         cadena_busqueda = data.get("dni")
     elif search_type == "celular":
         cadena_busqueda = data.get("celular")
+    elif search_type == "solo_apellidos":
+        apellidos = data.get("apellidos", "")
+        cadena_busqueda = apellidos.upper()
     else:
         nombres = data.get("nombres", "")
         apellidos = data.get("apellidos", "")
@@ -75,7 +78,12 @@ def buscar():
             )
             formatted_results.append(formatted_result)
 
-        mensaje = "\n\n".join(formatted_results)
+        # Separar los resultados de varias personas con "-----"
+        mensaje = (
+            "\n\n------------------------------------------------------------\n\n".join(
+                formatted_results
+            )
+        )
     else:
         mensaje = "No se encontraron resultados para la búsqueda."
 
