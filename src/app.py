@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 import subprocess
 
 app = Flask(__name__)
@@ -11,19 +11,18 @@ def index():
 
 @app.route("/buscar", methods=["POST"])
 def buscar():
-    search_type = request.form.get("searchType")
+    data = request.get_json()
+    search_type = data.get("searchType")
     archivo_csv = "C:/xampp/mysql/data/RENIEC10GB_CSV.csv"
 
     # Determinar el tipo de búsqueda en función de la selección del usuario
     if search_type == "dni":
-        dni = request.form.get("dni")
-        cadena_busqueda = dni
+        cadena_busqueda = data.get("dni")
     elif search_type == "celular":
-        celular = request.form.get("celular")
-        cadena_busqueda = celular
+        cadena_busqueda = data.get("celular")
     else:
-        nombres = request.form.get("nombres")
-        apellidos = request.form.get("apellidos")
+        nombres = data.get("nombres", "")
+        apellidos = data.get("apellidos", "")
         cadena_busqueda = f"{apellidos.upper()} {nombres.upper()}"
 
     # Ejecutar el comando rg para buscar en el CSV
@@ -32,14 +31,11 @@ def buscar():
     )
 
     if result.stdout:
-        # Separar la línea encontrada por los delimitadores de tu archivo CSV
-        # En tu caso, parece ser un delimitador ";"
         lines = result.stdout.strip().split("\n")
         formatted_results = []
 
         for line in lines:
             data = line.split(";")
-            # Formato de salida de acuerdo a los encabezados de tu archivo
             formatted_result = (
                 f'documento: "{data[0]}"\n'
                 f'apellido paterno: "{data[1]}"\n'
@@ -75,7 +71,7 @@ def buscar():
     else:
         mensaje = "No se encontraron resultados para la búsqueda."
 
-    return render_template("index.html", resultado=mensaje)
+    return mensaje
 
 
 if __name__ == "__main__":

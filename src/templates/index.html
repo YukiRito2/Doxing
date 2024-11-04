@@ -8,21 +8,11 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='style.css') }}"
     />
-    <script>
-      function toggleFields() {
-        const searchType = document.getElementById("searchType").value;
-        document.getElementById("nameFields").style.display =
-          searchType === "nombres" ? "block" : "none";
-        document.getElementById("dniField").style.display =
-          searchType === "dni" ? "block" : "none";
-        document.getElementById("celularField").style.display =
-          searchType === "celular" ? "block" : "none";
-      }
-    </script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
   </head>
   <body>
     <h1>Búsqueda de RENIEC</h1>
-    <form action="/buscar" method="POST">
+    <form id="searchForm">
       <label for="searchType">Tipo de búsqueda:</label>
       <select id="searchType" name="searchType" onchange="toggleFields()">
         <option value="nombres">Por Nombres y Apellidos</option>
@@ -50,14 +40,12 @@
       </div>
 
       <br />
-      <button type="submit">Buscar</button>
+      <button type="button" onclick="buscar()">Buscar</button>
     </form>
 
-    {% if resultado %}
-    <div class="result">
+    <div id="result" class="result" style="display: none">
       <h2>Resultados de la búsqueda:</h2>
-      <pre>{{ resultado }}</pre>
+      <pre id="resultContent"></pre>
     </div>
-    {% endif %}
   </body>
 </html>
