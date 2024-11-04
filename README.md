@@ -16,7 +16,7 @@ Para que este proyecto funcione correctamente, se requieren los siguientes eleme
 - **Python 3.10 o superior**
 - **Flask**: Framework web para manejar las solicitudes HTTP y mostrar la interfaz.
 - **ripgrep**: Herramienta de búsqueda rápida en archivos grandes, que debe estar instalada y agregada al PATH del sistema para su correcto funcionamiento.
-- **CSV de RENIEC**: Archivo de 10 GB ubicado en `C:/xampp/mysql/data/RENIEC10GB_CSV.csv`.
+- **CSV de RENIEC**: Archivo ubicado en `C:/xampp/mysql/data/RENIEC10GB_CSV.csv` (puedes ubicarlo donde desees no importa donde).
 
 ### Instalación de ripgrep
 
