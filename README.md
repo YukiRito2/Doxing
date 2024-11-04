@@ -16,8 +16,7 @@ Para que este proyecto funcione correctamente, se requieren los siguientes eleme
 - **Python 3.10 o superior**
 - **Flask**: Framework web para manejar las solicitudes HTTP y mostrar la interfaz.
 - **ripgrep**: Herramienta de búsqueda rápida en archivos grandes, que debe estar instalada y agregada al PATH del sistema para su correcto funcionamiento.
-- **CSV de RENIEC**: Archivo ubicado en `C:/xampp/mysql/data/RENIEC10GB_CSV.csv` (puedes ubicarlo donde desees no importa donde).
-
+- **CSV de RENIEC**: Archivo ubicado en `C:/xampp/mysql/data/RENIEC10GB_CSV.csv` (puedes ubicarlo donde desees no importa donde). el archivo lo tengo yo pesa un buen por eso no lo puse XD
 ### Instalación de ripgrep
 
 1. Descarga `ripgrep` desde el [sitio oficial de ripgrep](https://github.com/YukiRito2/Doxing.git).
