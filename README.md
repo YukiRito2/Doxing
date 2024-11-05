@@ -19,7 +19,7 @@ Para que este proyecto funcione correctamente, se requieren los siguientes eleme
 - **CSV de RENIEC**: Archivo ubicado en `C:/xampp/mysql/data/RENIEC10GB_CSV.csv` (puedes ubicarlo donde desees no importa donde). el archivo lo tengo yo pesa un buen por eso no lo puse XD
 ### Instalación de ripgrep
 
-1. Descarga `ripgrep` desde el [sitio oficial de ripgrep](https://github.com/YukiRito2/Doxing.git).
+1. Descarga `ripgrep` desde el [https://github.com/BurntSushi/ripgrep/releases]().
 2. Sigue las instrucciones para instalarlo en tu sistema operativo:
    - **Windows**: Descarga el archivo `.zip`, extrae el contenido y copia el archivo `rg.exe` a una ubicación de fácil acceso.
    - **Linux** (Ubuntu/Debian): Ejecuta el siguiente comando en la terminal:
@@ -39,5 +39,5 @@ Para que este proyecto funcione correctamente, se requieren los siguientes eleme
 
 1. **Clona este repositorio**:
    ```bash
-   git clone https://github.com/tu_usuario/reniec-busqueda.git
+   git clone https://github.com/YukiRito2/Doxing.git
    cd reniec-busqueda
